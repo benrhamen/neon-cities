@@ -1,9 +1,9 @@
-# Neon City Adventures
+# Pixel City Adventures
 
 Four illustrated educational adventures using Neon Dragon rules.
 
 - Rome: landmarks, food and twelve Western zodiac friends.
-- Paris: fairy tales and La Fontaine friends.
+- Paris: French fairy-tale friends (Perrault, Beaumont, d'Aulnoy).
 - London: British folklore friends.
 - New York: twelve original city Sparks.
 
