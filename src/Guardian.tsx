@@ -4,18 +4,18 @@ export function Guardian({name='',symbol='',index=0,color='#8adeff'}:any){
  const ball=(x:number,y:number,w:number,h:number,c:string)=>{R(x+2,y,w-4,h,O);R(x,y+2,w,h-4,O);R(x+2,y+2,w-4,h-4,c);R(x+4,y+3,w-8,2,P)};
  const face=(x=20,y=19)=>{R(x-7,y,3,5,O);R(x+4,y,3,5,O);R(x-7,y,1,2,'#fff');R(x+4,y,1,2,'#fff');R(x-11,y+5,4,2,B);R(x+7,y+5,4,2,B);R(x-2,y+7,4,1,O);R(x-1,y+8,2,1,O)};
  R(7,37,26,3,'#242443');R(4,36,3,1,'#555080');R(35,36,2,1,'#555080');
- const animal=/Ram|Bull|Lion|Cat|Fox|Goat|Boots/.test(symbol)||/Puss|Fox/.test(name);
+ const animal=/Ram|Bull|Lion|Cat|Fox|Goat|Boots|Beast/.test(symbol)||/Puss|Fox/.test(name);
  const plant=/Seed|Branches|Flexible/.test(symbol);
  const bug=/Crab|Scorpion|Song|Crest/.test(symbol)||/Grasshopper|Ant|Cock/.test(name);
  const spark=/Spark|Luma|Bolt|Gremlin/.test(name);
- if(animal){let fur=/Fox/.test(name)?'#f6aa67':/Lion/.test(symbol)?'#f4bc62':/Bull/.test(symbol)?'#b5bff1':/Cat|Boots/.test(symbol)?'#e5c9ad':'#f3e5ce';
+ if(animal){let fur=/Fox/.test(name)?'#f6aa67':/Beast/.test(symbol)?'#a9755a':/Lion/.test(symbol)?'#f4bc62':/Bull/.test(symbol)?'#b5bff1':/White Cat/.test(symbol)?'#fbfbff':/Cat|Boots/.test(symbol)?'#e5c9ad':'#f3e5ce';
   ball(9,22,23,14,fur);R(10,33,6,4,O);R(24,33,6,4,O);R(11,33,4,3,color);R(25,33,4,3,color);
-  if(/Lion/.test(symbol)){ball(5,6,31,26,'#ca855e');R(5,9,3,4,'#ffcb78');R(32,25,3,5,'#ffcb78')}
+  if(/Lion|Beast/.test(symbol)){ball(5,6,31,26,'#7a4a3a');R(5,9,3,4,'#ffcb78');R(32,25,3,5,'#ffcb78')}
   ball(7,10,27,22,fur);R(8,5,7,8,O);R(25,5,7,8,O);R(10,7,3,5,B);R(27,7,3,5,B);
   if(/Ram|Bull|Goat/.test(symbol)){R(3,5,5,10,O);R(4,6,3,7,P);R(32,5,5,10,O);R(33,6,3,7,P);R(5,13,5,3,P);R(29,13,5,3,P)}
   face();R(17,24,6,3,'#f0ccb6');R(19,25,2,2,O);R(12,29,16,2,color);R(17,30,5,3,color);
   if(/Goat/.test(symbol)){R(28,30,8,3,'#6fcca9');R(34,26,4,6,'#6fcca9')}
-  if(/Boots/.test(symbol)){R(8,33,9,5,'#9e6253');R(23,33,10,5,'#9e6253');R(5,9,30,3,'#725481');R(13,3,16,6,color);R(30,4,2,7,P)}
+  if(/Beast/.test(symbol)){R(2,20,2,15,'#5fa56a');R(0,15,6,6,'#e0486c');R(1,16,3,3,'#ff8fae');R(30,26,7,5,'#e0486c');R(5,9,6,5,'#4a2c24');R(30,9,6,5,'#4a2c24')}if(/Boots/.test(symbol)){R(8,33,9,5,'#9e6253');R(23,33,10,5,'#9e6253');R(5,9,30,3,'#725481');R(13,3,16,6,color);R(30,4,2,7,P)}
  }else if(/Fish/.test(symbol)){ball(3,9,24,14,'#93d9e9');R(26,10,8,12,'#d78ddd');R(30,8,6,16,'#d78ddd');ball(13,25,22,12,'#d78ddd');R(6,27,9,8,'#93d9e9');R(7,25,4,12,'#93d9e9');R(11,15,2,4,O);R(10,15,1,1,P);R(9,19,3,1,B);R(27,29,2,4,O);R(26,29,1,1,P);R(24,33,3,1,B);R(14,13,3,2,P);R(25,28,3,2,P);
  }else if(plant){R(18,23,4,14,'#7fa472');ball(8,9,25,22,'#88ce98');R(5,15,7,4,'#68a882');R(29,16,7,5,'#68a882');R(11,6,7,6,'#9ddd9a');R(24,5,6,8,'#b5eaa7');face(20,17);R(13,34,14,3,'#987454');if(/Reed/.test(name)){R(23,3,2,14,'#d9d5a4');R(24,3,4,8,'#ecdeb3')}
  }else if(bug){ball(8,15,26,18,/Crab|Scorpion/.test(symbol)?'#f39aa2':'#b0d9a0');R(10,9,3,8,O);R(28,9,3,8,O);R(10,9,3,3,P);R(28,9,3,3,P);face(21,20);R(4,18,5,7,color);R(32,18,5,7,color);R(7,32,5,4,color);R(29,32,5,4,color);if(/Scorpion/.test(symbol)){R(34,25,4,8,'#dc93b0');R(35,19,3,8,'#dc93b0');R(33,16,5,4,P)}if(/Crest|Cock/.test(name+symbol)){R(18,8,6,7,'#ff7e97');R(27,25,9,3,'#ffd286')}
@@ -48,6 +48,12 @@ export function Guardian({name='',symbol='',index=0,color='#8adeff'}:any){
   if(/Water|Lake/.test(symbol)){ball(1,26,9,11,'#93cae5');R(2,25,7,3,P);R(8,34,25,2,'#93cae5')}
   if(/Maiden/.test(symbol)){R(3,22,2,16,'#d8bd71');R(1,22,6,6,'#ffe0a3')}
   if(/Twins/.test(symbol)){ball(23,20,14,14,'#c1b0ea');R(26,24,2,3,O);R(32,24,2,3,O);R(27,30,6,1,B)}
+  if(/Rose/.test(symbol)){R(2,24,2,13,'#5fa56a');R(0,18,6,6,'#e0486c');R(1,19,4,3,'#ff8fae');R(2,28,5,2,'#5fa56a');R(8,7,25,4,'#8a5a44');R(30,10,5,12,'#8a5a44')}
+  if(/Golden hair/.test(symbol)){R(5,8,31,6,'#f7d35c');R(4,12,6,24,'#f7d35c');R(31,12,6,24,'#f7d35c');R(12,5,16,3,'#ff9fc4');R(14,3,3,3,'#fff2cf');R(22,3,3,3,'#9ee0b0')}
+  if(/Donkey skin/.test(symbol)){R(6,6,28,6,'#8c8798');R(5,10,6,18,'#8c8798');R(29,10,6,18,'#8c8798');R(8,0,5,9,'#8c8798');R(28,0,5,9,'#8c8798');R(9,2,3,5,B);R(29,2,3,5,B);R(12,26,16,10,'#8c8798');R(15,30,10,3,'#ffd35a')}
+  if(false){R(14,3,6,8,'#5b3f6f');R(18,0,5,6,'#5b3f6f');R(22,2,5,4,'#5b3f6f');R(5,22,6,3,'#a07bd3');R(30,22,6,3,'#a07bd3')}
+  if(false){R(9,3,23,5,'#fff6f2');R(10,1,5,4,'#ffffff');R(18,0,5,4,'#ffffff');R(26,1,5,4,'#ffffff');R(12,3,2,2,'#ffc1d1');R(28,3,2,2,'#ffc1d1');R(2,8,3,28,'#e8f3ff');R(35,8,3,28,'#e8f3ff')}
+  if(/Fine suit/.test(symbol)){R(9,3,23,4,'#3a3f8f');R(12,0,17,4,'#3a3f8f');R(26,0,4,9,'#ff9fc4');R(8,24,25,12,'#3a3f8f');R(19,26,3,10,'#f0c96e');R(15,28,2,2,'#f0c96e');R(24,28,2,2,'#f0c96e');R(15,32,2,2,'#f0c96e');R(24,32,2,2,'#f0c96e');R(1,22,5,12,'#7a5a8f');R(34,22,5,12,'#7a5a8f')}
  }
  R(2,3,3,1,P);R(3,2,1,3,P);R(37,13,2,1,color);R(38,12,1,3,color);
  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" className="guardian-pixel" role="img" aria-label={`Original kawaii pixel ${name}`} shapeRendering="crispEdges">{p}</svg>
