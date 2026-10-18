@@ -13,4 +13,5 @@ html,body{margin:0;background:#15152f}body{font-family:Arial,sans-serif}*{box-si
 @keyframes hero-hop{0%,65%,100%{transform:translateY(0)}75%{transform:translateY(-5px)}85%{transform:translateY(0)}92%{transform:translateY(-2px)}}
 @media(max-width:767px){.overview{padding:18px}.overview h1{font-size:19px}.overview .city-card{padding:10px}.overview .city-card h2{font-size:30px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-.head-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.arcade-top{display:inline-block;text-decoration:none}
+
+.game-head{flex-direction:column}.game-head .head-links{order:-1;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
