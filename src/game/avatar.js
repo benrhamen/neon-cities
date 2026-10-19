@@ -1,4 +1,4 @@
-// Pixel avatar: 16x16 sprite assembled from layers, drawn on a canvas and scaled with
+// Pixel avatar: 24x24 sprite (1.5x detail redraw of the original 16x16, same on-screen size, assembled from layers, drawn on a canvas and scaled with
 // CSS `image-rendering: pixelated` so it stays crisp at any size.
 
 // skins 6-8 (blue, green, grey) were added in v2.3.0: new colours go on the END so saved
@@ -27,47 +27,55 @@ export const PRESETS = [
 ];
 
 const BASE = [
-  '................',
-  '................',
-  '................',
-  '....SSSSSSSS....',
-  '....SSSSSSSS....',
-  '....SSSSSSSS....',
-  '....SEESSEES....',
-  '....SSSSSSSS....',
-  '.....SSMMSS.....',
-  '......SSSS......',
-  '....OOOXXOOO....',
-  '...SOOOXXOOOS...',
-  '...SOOOOOOOOS...',
-  '....PPPPPPPP....',
-  '....PPP..PPP....',
-  '...BBBB..BBBB...',
+  '........................',
+  '........................',
+  '........................',
+  '........................',
+  '......SSSSSSSSSSSS......',
+  '......SSSSSSSSSSSS......',
+  '......SSSSSSSSSSSS......',
+  '......SSSSSSSSSSSS......',
+  '......SSSSSSSSSSSS......',
+  '......SSEESSSSEESS......',
+  '......SSSSSSSSSSSS......',
+  '......SSSSSSSSSSSS......',
+  '.......SSSMMMMSSS.......',
+  '........SSSSSSSS........',
+  '.........SSSSSS.........',
+  '......OOOOXXXXOOOO......',
+  '.....SOOOOXXXXOOOOS.....',
+  '.....SOOOOOOOOOOOOS.....',
+  '.....SOOOOOOOOOOOOS.....',
+  '......PPPPPPPPPPPP......',
+  '......PPPPP..PPPPP......',
+  '......PPPPP..PPPPP......',
+  '.....BBBBB....BBBBB.....',
+  '.....BBBBB....BBBBB.....',
 ];
 
 const HAIR = {
-  short: { 2: '.....HHHHHH.....', 3: '....HHHHHHHH....', 4: '....HHHHHHHH....', 5: '....H......H....' },
-  spiky: { 0: '.....H.H..H.....', 1: '....HHHHHHHH....', 2: '...HHHHHHHHHH...', 3: '...HHHHHHHHHH...', 4: '....HHHHHHHH....', 5: '....H......H....' },
-  long: { 2: '.....HHHHHH.....', 3: '....HHHHHHHH....', 4: '...HHHHHHHHHH...', 5: '...HH......HH...', 6: '...H........H...', 7: '...H........H...', 8: '...HH......HH...', 9: '...HHH....HHH...' },
-  bun: { 0: '......HHHH......', 1: '......HHHH......', 2: '.....HHHHHH.....', 3: '....HHHHHHHH....', 4: '....HHHHHHHH....', 5: '....H......H....' },
-  pigtails: { 2: '.....HHHHHH.....', 3: '....HHHHHHHH....', 4: '...HHHHHHHHHH...', 5: '..HHH......HHH..', 6: '..HH........HH..', 7: '..H..........H..' },
+  short: { 3: '........HHHHHHHH........', 4: '......HHHHHHHHHHHH......', 5: '......HHHHHHHHHHHH......', 6: '......HHHHHHHHHHHH......', 7: '......HH........HH......' },
+  spiky: { 0: '........H..HH..H........', 1: '.......HHHHHHHHHH.......', 2: '......HHHHHHHHHHHH......', 3: '......HHHHHHHHHHHH......', 4: '......HHHHHHHHHHHH......', 5: '......HHHHHHHHHHHH......', 6: '......HHHHHHHHHHHH......', 7: '......HH........HH......' },
+  long: { 3: '.......HHHHHHHHH........', 4: '......HHHHHHHHHHHH......', 5: '......HHHHHHHHHHHH......', 6: '......HHHHHHHHHHHH......', 7: '.....HHH........HHH.....', 8: '.....HH..........HH.....', 9: '.....HH..........HH.....', 10: '.....HH..........HH.....', 11: '.....HHH........HHH.....', 12: '.....HHHH......HHHH.....', 13: '.....HHHHH....HHHHH.....' },
+  bun: { 0: '.........HHHHHH.........', 1: '.........HHHHHH.........', 2: '........HHHHHHHH........', 3: '.......HHHHHHHHHH.......', 4: '......HHHHHHHHHHHH......', 5: '......HHHHHHHHHHHH......', 6: '......HHHHHHHHHHHH......', 7: '......HH........HH......' },
+  pigtails: { 3: '........HHHHHHHH........', 4: '......HHHHHHHHHHHH......', 5: '.....HHHHHHHHHHHHHH.....', 6: '....HHHH........HHHH....', 7: '....HHH..........HHH....', 8: '....HH............HH....', 9: '....HH............HH....', 10: '....HH............HH....', 11: '....HHH..........HHH....' },
 };
 const ACC = {
   none: {},
-  cap: { 1: '.....CCCCCC.....', 2: '....CCCCCCCC....', 3: '....CCCCCCCCCC..' },
-  glasses: { 6: '....GEEGGEEG....' },
-  headphones: { 1: '....AAAAAAAA....', 2: '...A........A...', 3: '...A........A...', 4: '...A........A...', 5: '..AA........AA..', 6: '..AA........AA..', 7: '..AA........AA..' },
-  crown: { 0: '....Y.YYYY.Y....', 1: '....YYRYYRYY....' },
+  cap: { 2: '........CCCCCCCC........', 3: '......CCCCCCCCCCCC......', 4: '......CCCCCCCCCCCC......', 5: '......CCCCCCCCCCCCCC....' },
+  glasses: { 8: '.......GGGGGGGGGG.......', 9: '.......GEEGGGGEEG.......' },
+  headphones: { 2: '......AAAAAAAAAAAA......', 3: '.....AA........AA.......', 4: '....AA..........AA......', 5: '....A............A......', 6: '....A............A......', 7: '...AA............AA.....', 8: '...AAA..........AAA.....', 9: '...AAA..........AAA.....', 10: '...AA............AA.....' },
+  crown: { 0: '.......Y..YYYY..Y.......', 1: '.......YYYYYYYYYY.......', 2: '.......YYRYYYRYY........' },
 };
 
 // beard: sideburns, a bushy jaw around the mouth and a little point on the collar
-const BEARD = { 7: '....D......D....', 8: '....DDD..DDD....', 9: '.....DDDDDD.....', 10: '.......DD.......' };
+const BEARD = { 11: '......DD........DD......', 12: '......DDD.MMMM.DDD......', 13: '.......DDDDDDDDDD.......', 14: '.........DDDDDD.........', 15: '..........DDDD..........' };
 // gloves: cartoon gloves over the hero's two hands
-const GLOVES = { 11: '...w........w...', 12: '...w........w...' };
+const GLOVES = { 16: '....ww............ww....', 17: '....ww............ww....', 18: '....ww............ww....' };
 // magic boots: glowing boots, same footprint as the normal pair
-const MAGIC_BOOTS = { 15: '...ZZZZ..ZZZZ...' };
+const MAGIC_BOOTS = { 22: '.....ZZZZZ....ZZZZZ.....', 23: '.....ZZZZZ....ZZZZZ.....' };
 // cape: drawn BEHIND the hero (only on empty pixels), flaring out to the floor
-const CAPE = { 10: '...V........V...', 11: '..V..........V..', 12: '..V..........V..', 13: '..VV........VV..', 14: '..VVV..VV..VVV..', 15: '.VVV...VV...VVV.' };
+const CAPE = { 15: '....V..............V....', 16: '...V................V...', 17: '...V................V...', 18: '...V................V...', 19: '..VV................VV..', 20: '..VVV..............VVV..', 21: '..VVVV............VVVV..', 22: '.VVVVV............VVVVV.', 23: '.VVVVV...VV..VV...VVVVV.' };
 
 export function defaultAvatar() { return { ...PRESETS[0] }; }
 
@@ -112,8 +120,8 @@ export function avatarGrid(raw) {
 export function drawAvatar(canvas, raw) {
   const a = normalizeAvatar(raw);
   const ctx = canvas.getContext('2d');
-  canvas.width = 16; canvas.height = 16;
-  ctx.clearRect(0, 0, 16, 16);
+  canvas.width = 24; canvas.height = 24;
+  ctx.clearRect(0, 0, 24, 24);
   const outfit = OUTFITS[a.outfit] ?? OUTFITS[0];
   const pal = {
     S: SKINS[a.skin] ?? SKINS[0],
